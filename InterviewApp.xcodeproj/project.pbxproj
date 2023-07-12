@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0410745A2A5DF6A900EBCED6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041074592A5DF6A900EBCED6 /* LoginViewModel.swift */; };
 		044D6CE12A5CB9050098ABE9 /* InterviewAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D6CE02A5CB9050098ABE9 /* InterviewAppApp.swift */; };
 		044D6CE32A5CB9050098ABE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D6CE22A5CB9050098ABE9 /* ContentView.swift */; };
 		044D6CE52A5CB9060098ABE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044D6CE42A5CB9060098ABE9 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041074592A5DF6A900EBCED6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		044D6CDD2A5CB9050098ABE9 /* InterviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044D6CE02A5CB9050098ABE9 /* InterviewAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewAppApp.swift; sourceTree = "<group>"; };
 		044D6CE22A5CB9050098ABE9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				044D6CF52A5CBD390098ABE9 /* LoginView.swift */,
+				041074592A5DF6A900EBCED6 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				044D6CFC2A5CC0A30098ABE9 /* CGFloat.swift in Sources */,
 				044D6CE32A5CB9050098ABE9 /* ContentView.swift in Sources */,
 				044D6CE12A5CB9050098ABE9 /* InterviewAppApp.swift in Sources */,
+				0410745A2A5DF6A900EBCED6 /* LoginViewModel.swift in Sources */,
 				044D6CF12A5CBAC70098ABE9 /* SplashView.swift in Sources */,
 				044D6CF62A5CBD390098ABE9 /* LoginView.swift in Sources */,
 				044D6CF32A5CBADE0098ABE9 /* SplashViewModel.swift in Sources */,

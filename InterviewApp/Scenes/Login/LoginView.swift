@@ -12,26 +12,28 @@ struct LoginView: View {
     @StateObject var viewModel: LoginViewModel = LoginViewModel()
     var isSignInButtonDisabled: Bool { [viewModel.username, viewModel.password].contains(where: \.isEmpty) }
     var body: some View {
-        if !viewModel.authenticated {
-            loginInfo
-        } else {
-            VStack {
-                
-                title
-                imageView
-                loginTextField
-                signInButton
-                Spacer()
-                signUpButton
-                    .alert("Access denied", isPresented: $viewModel.invalid) {
-                        Button("Dismiss", action: viewModel.logPressed)
-                    }
+        NavigationView {
+            if !viewModel.authenticated {
+                loginInfo
+            } else {
+                VStack {
+                    
+                    title
+                    imageView
+                    loginTextField
+                    signInButton
+                    Spacer()
+                    signUpButton
+                        .alert("Access denied", isPresented: $viewModel.invalid) {
+                            Button("Dismiss", action: viewModel.logPressed)
+                        }
+                }
+                .background(
+                    LinearGradient(colors: [.purple, .blue], startPoint: .top, endPoint: .bottom)
+                        .edgesIgnoringSafeArea(.all)
+                )
+                .transition(.offset(x: 0, y: 850))
             }
-            .background(
-                LinearGradient(colors: [.purple, .blue], startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
-            )
-            .transition(.offset(x: 0, y: 850))
         }
     }
     
@@ -44,9 +46,9 @@ struct LoginView: View {
             Button("Log out", action: viewModel.logOut)
                 .tint(.red)
                 .buttonStyle(.bordered)
-         
-            Button {
-                print("do TabView")
+            
+            NavigationLink {
+                MainTabView()
             } label: {
                 Text("Continue")
                     .font(.skFont(type: .largeBold))

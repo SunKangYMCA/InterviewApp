@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0410745A2A5DF6A900EBCED6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041074592A5DF6A900EBCED6 /* LoginViewModel.swift */; };
+		0412F17A2A5F1EB400E3B4F0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412F1792A5F1EB400E3B4F0 /* MainTabView.swift */; };
+		0412F17D2A5F70DF00E3B4F0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412F17C2A5F70DF00E3B4F0 /* MainView.swift */; };
+		0412F1802A5F722800E3B4F0 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412F17F2A5F722800E3B4F0 /* NoteView.swift */; };
+		0412F1832A5F726F00E3B4F0 /* AddFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412F1822A5F726F00E3B4F0 /* AddFileView.swift */; };
 		044D6CE12A5CB9050098ABE9 /* InterviewAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D6CE02A5CB9050098ABE9 /* InterviewAppApp.swift */; };
-		044D6CE32A5CB9050098ABE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D6CE22A5CB9050098ABE9 /* ContentView.swift */; };
 		044D6CE52A5CB9060098ABE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044D6CE42A5CB9060098ABE9 /* Assets.xcassets */; };
 		044D6CE82A5CB9060098ABE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044D6CE72A5CB9060098ABE9 /* Preview Assets.xcassets */; };
 		044D6CF12A5CBAC70098ABE9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D6CF02A5CBAC70098ABE9 /* SplashView.swift */; };
@@ -19,9 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041074592A5DF6A900EBCED6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0412F1792A5F1EB400E3B4F0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		0412F17C2A5F70DF00E3B4F0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0412F17F2A5F722800E3B4F0 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		0412F1822A5F726F00E3B4F0 /* AddFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFileView.swift; sourceTree = "<group>"; };
 		044D6CDD2A5CB9050098ABE9 /* InterviewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterviewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044D6CE02A5CB9050098ABE9 /* InterviewAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewAppApp.swift; sourceTree = "<group>"; };
-		044D6CE22A5CB9050098ABE9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		044D6CE42A5CB9060098ABE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		044D6CE72A5CB9060098ABE9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		044D6CF02A5CBAC70098ABE9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -42,6 +50,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0412F1782A5F1E6E00E3B4F0 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				0412F1792A5F1EB400E3B4F0 /* MainTabView.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		0412F17B2A5F70C900E3B4F0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0412F17C2A5F70DF00E3B4F0 /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0412F17E2A5F721A00E3B4F0 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				0412F17F2A5F722800E3B4F0 /* NoteView.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		0412F1812A5F725000E3B4F0 /* AddFile */ = {
+			isa = PBXGroup;
+			children = (
+				0412F1822A5F726F00E3B4F0 /* AddFileView.swift */,
+			);
+			path = AddFile;
+			sourceTree = "<group>";
+		};
 		044D6CD42A5CB9050098ABE9 = {
 			isa = PBXGroup;
 			children = (
@@ -64,7 +104,6 @@
 				044D6CF72A5CBF290098ABE9 /* Utilities */,
 				044D6CEE2A5CBA9A0098ABE9 /* Scenes */,
 				044D6CE02A5CB9050098ABE9 /* InterviewAppApp.swift */,
-				044D6CE22A5CB9050098ABE9 /* ContentView.swift */,
 				044D6CE42A5CB9060098ABE9 /* Assets.xcassets */,
 				044D6CE62A5CB9060098ABE9 /* Preview Content */,
 			);
@@ -82,8 +121,12 @@
 		044D6CEE2A5CBA9A0098ABE9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				044D6CF42A5CBD120098ABE9 /* Login */,
 				044D6CEF2A5CBAB70098ABE9 /* Splash */,
+				044D6CF42A5CBD120098ABE9 /* Login */,
+				0412F1782A5F1E6E00E3B4F0 /* TabView */,
+				0412F17B2A5F70C900E3B4F0 /* Main */,
+				0412F17E2A5F721A00E3B4F0 /* Note */,
+				0412F1812A5F725000E3B4F0 /* AddFile */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -101,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				044D6CF52A5CBD390098ABE9 /* LoginView.swift */,
+				041074592A5DF6A900EBCED6 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -194,8 +238,12 @@
 			files = (
 				044D6CFE2A5CC3820098ABE9 /* Font.swift in Sources */,
 				044D6CFC2A5CC0A30098ABE9 /* CGFloat.swift in Sources */,
-				044D6CE32A5CB9050098ABE9 /* ContentView.swift in Sources */,
+				0412F17A2A5F1EB400E3B4F0 /* MainTabView.swift in Sources */,
+				0412F17D2A5F70DF00E3B4F0 /* MainView.swift in Sources */,
+				0412F1802A5F722800E3B4F0 /* NoteView.swift in Sources */,
 				044D6CE12A5CB9050098ABE9 /* InterviewAppApp.swift in Sources */,
+				0410745A2A5DF6A900EBCED6 /* LoginViewModel.swift in Sources */,
+				0412F1832A5F726F00E3B4F0 /* AddFileView.swift in Sources */,
 				044D6CF12A5CBAC70098ABE9 /* SplashView.swift in Sources */,
 				044D6CF62A5CBD390098ABE9 /* LoginView.swift in Sources */,
 				044D6CF32A5CBADE0098ABE9 /* SplashViewModel.swift in Sources */,

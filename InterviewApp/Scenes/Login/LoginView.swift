@@ -9,30 +9,58 @@ import SwiftUI
 
 struct LoginView: View {
     
-    var isSignInButtonDisabled: Bool { [name, password].contains(where: \.isEmpty) }
-    
-    @State var name: String = ""
-    @State var password: String = ""
-    @State var showPassword: Bool = false
-    
+    @StateObject var viewModel: LoginViewModel = LoginViewModel()
+    var isSignInButtonDisabled: Bool { [viewModel.username, viewModel.password].contains(where: \.isEmpty) }
     var body: some View {
-        VStack {
-            
-            title
-            imageView
-            loginTextField
-            signInButton
-            Spacer()
-            signUpButton
-            
-            
+        NavigationView {
+            if !viewModel.authenticated {
+                loginInfo
+            } else {
+                VStack {
+                    
+                    title
+                    imageView
+                    loginTextField
+                    signInButton
+                    Spacer()
+                    signUpButton
+                        .alert("Access denied", isPresented: $viewModel.invalid) {
+                            Button("Dismiss", action: viewModel.logPressed)
+                        }
+                }
+                .background(
+                    LinearGradient(colors: [.purple, .blue], startPoint: .top, endPoint: .bottom)
+                        .edgesIgnoringSafeArea(.all)
+                )
+                .transition(.offset(x: 0, y: 850))
+            }
         }
-        .background(
-            LinearGradient(colors: [.purple, .blue], startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
-        )
     }
     
+    private var loginInfo: some View {
+        VStack(spacing: 20) {
+            Text("Welcome back **\(viewModel.username.lowercased())**!")
+            
+            Text("Today is: **\(Date().formatted(.dateTime))**")
+            
+            Button("Log out", action: viewModel.logOut)
+                .tint(.red)
+                .buttonStyle(.bordered)
+            
+            NavigationLink {
+                MainTabView()
+            } label: {
+                Text("Continue")
+                    .font(.skFont(type: .largeBold))
+                    .padding()
+                    .background(
+                        Color.blue
+                            .opacity(0.5)
+                            .cornerRadius(.cornerRadius)
+                    )
+            }
+        }
+    }
     private var title: some View {
         Text("Welcome Interview App")
             .font(.largeTitle)
@@ -58,20 +86,21 @@ struct LoginView: View {
         
         VStack(alignment: .leading, spacing: 15) {
             
-            TextField("Name", text: $name, prompt: Text("Name"))
+            TextField("Name", text: $viewModel.username, prompt: Text("Name is \" sunkang\""))
                 .padding()
                 .background(
                     Color.white
                         .opacity(0.8)
                         .cornerRadius(.cornerRadius)
                 )
+                .textInputAutocapitalization(.never)
             
             HStack {
                 Group {
-                    if showPassword {
-                        TextField("Password", text: $password, prompt: Text("Password"))
+                    if viewModel.showPassword {
+                        TextField("Password", text: $viewModel.password, prompt: Text("Password is \"password\""))
                     } else {
-                        SecureField("Password", text: $password, prompt: Text("Password"))
+                        SecureField("Password", text: $viewModel.password, prompt: Text("password"))
                     }
                 }
                 .padding()
@@ -80,30 +109,33 @@ struct LoginView: View {
                         .opacity(0.8)
                         .cornerRadius(.cornerRadius)
                 )
+                .textInputAutocapitalization(.never)
                 
                 
                 Button {
-                    showPassword.toggle()
+                    viewModel.showPassword.toggle()
                 } label: {
-                    Image(systemName: showPassword ? "eye.slash" : "eye")
+                    Image(systemName: viewModel.showPassword ? "eye.slash" : "eye")
                         .foregroundColor(.white)
                 }
             }
         }
         .padding(.horizontal, 30)
-        
+        .alert("Access denied", isPresented: $viewModel.invalid) {
+            Button("Dismiss", action: viewModel.logPressed)
+        }
     }
-
-
+    
+    
     private var signInButton: some View {
         
         Button {
-            print("do login action")
+            viewModel.authenticate()
         } label: {
             Text("Sing In")
                 .font(.skFont(type: .normalBold))
                 .foregroundColor(.white)
-                
+            
         }
         .frame(width: 250, height: 50)
         .background(
@@ -116,13 +148,19 @@ struct LoginView: View {
     
     private var signUpButton: some View {
         
-        Button {
-            print("do sign up action")
-        } label: {
-            Text("Don't have an account? **Sign up**")
-                .foregroundColor(.black)
+        VStack {
+            Button {
+                viewModel.showingPassword = true
+            } label: {
+                Text("Forgot password? **Click Here**")
+                    .foregroundColor(.black)
+            }
+        }
+        .alert("Password is \"password\"", isPresented: $viewModel.showingPassword) {
+            Button("OK", role: .cancel) {}
         }
     }
+    
 }
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

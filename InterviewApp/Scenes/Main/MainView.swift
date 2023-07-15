@@ -8,11 +8,37 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @StateObject var viewModel: MainViewModel = MainViewModel()
+    
     var body: some View {
-        Text("MainView, Audio Play, Audio + note")
+        
+        List {
+            ForEach(viewModel.questions, id: \.id) { unit in
+                HStack {
+                    
+                    Text("- \(unit.title)")
+                    
+                    Spacer()
+                    
+                    Button {
+                        viewModel.playSound(key: unit.key)
+                    } label: {
+                        withAnimation {
+                            Image(systemName: "play.circle.fill")
+                                .padding(5)
+                                .background(
+                                    Color.blue
+                                        .opacity(0.3)
+                                        .cornerRadius(.cornerRadius)
+                                )
+                        }
+                    }
+                }
+            }
+        }
     }
 }
-
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()

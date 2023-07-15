@@ -12,7 +12,6 @@ struct MainView: View {
     @StateObject var viewModel: MainViewModel = MainViewModel()
     
     var body: some View {
-        
         List {
             ForEach(viewModel.questions, id: \.id) { unit in
                 HStack {
@@ -22,9 +21,10 @@ struct MainView: View {
                     Spacer()
                     
                     Button {
-                        viewModel.playSound(key: unit.key)
-                    } label: {
                         withAnimation {
+                            viewModel.playSound(key: unit.key)
+                        }
+                    } label: {
                             Image(systemName: "play.circle.fill")
                                 .padding(5)
                                 .background(
@@ -32,7 +32,6 @@ struct MainView: View {
                                         .opacity(0.3)
                                         .cornerRadius(.cornerRadius)
                                 )
-                        }
                     }
                 }
             }
